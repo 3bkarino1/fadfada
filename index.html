@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahmy Burger Egypt | The Ultimate Burger Experience</title>
+    <meta name="description" content="Savor the best burgers in Egypt at Wahmy Burger. From classic cheeseburgers to signature chicken meals, we bring you premium taste and quality.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/globals.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">WAHMY<span>BURGER</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+        <div class="cart-btn" onclick="window.location.href='cart.html'">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Craving the <br><span class="accent">Ultimate</span> Burger?</h1>
+            <p class="fade-in">Experience the boldest flavors in Egypt. We don't just grill, we craft masterpieces with premium cuts and secret spices.</p>
+            <div class="fade-in" style="display: flex; gap: 20px; justify-content: center;">
+                <a href="menu.html" class="btn btn-primary">Start Order <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#features" class="btn btn-outline">Discover Quality</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="feature-section">
+        <h2 class="section-title fade-in">Why <span style="color: var(--primary);">Wahmy</span> is Different</h2>
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <i class="fa-solid fa-cow"></i>
+                <h3>Prime Angus Beef</h3>
+                <p>We use 100% locally sourced, hand-picked Angus beef. No fillers, just pure protein and flavor.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <i class="fa-solid fa-fire-burner"></i>
+                <h3>Lava Stone Grilling</h3>
+                <p>Our meat is grilled over natural lava stones to lock in juices and deliver that signature smoky aroma.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Lightning Express</h3>
+                <p>Your burger is prepared on-demand and delivered at peak temperature directly to your door.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="display: flex; justify-content: center; margin-bottom: 40px;">WAHMY<span>BURGER</span></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: left; margin-bottom: 60px;">
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 20px;">Visit Us</h4>
+                <p style="color: var(--text-dim);">Tahrir Square, Cairo, Egypt</p>
+                <p style="color: var(--text-dim);">Operating 24/7</p>
+            </div>
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 20px;">Contact</h4>
+                <p style="color: var(--text-dim);">Hotline: 19XXX</p>
+                <p style="color: var(--text-dim);">Email: hello@wahmy.com</p>
+            </div>
+            <div>
+                <h4 style="color: var(--primary); margin-bottom: 20px;">Follow Us</h4>
+                <div style="display: flex; gap: 20px; font-size: 1.5rem;">
+                    <a href="#" style="color: var(--text-main);"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--text-main);"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" style="color: var(--text-main);"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.4;">&copy; 2026 Wahmy Burger Egypt. Engineered for Taste.</p>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const cartItems = document.querySelectorAll('.fade-in');
+            cartItems.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            const cart = JSON.parse(localStorage.getItem('wahmyCart')) || [];
+            document.querySelectorAll('.cart-count').forEach(el => {
+                el.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+            });
+        });
+    </script>
+</body>
+</html>
